@@ -1,5 +1,5 @@
 type Query {
-    shows(titleFilter: String): [Show]
+    shows(titleFilter: String @NotBlank): [Show]
 }
 
 type Mutation {
@@ -42,3 +42,5 @@ type Image {
 scalar DateTime
 scalar Upload
 directive @skipcodegen on FIELD_DEFINITION
+directive @NotBlank(message : String = "graphql.validation.NotBlank.message")
+on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
